@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Case Report Dashboard</title>
+<meta name="description" content="Customer case report dashboard with month and year filters, charts, editing and Excel upload.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a63c9' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M4 20V10M10 20V4M16 20v-7M22 20H2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+Khmer:wght@400;600&family=Outfit:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#0a63c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+      <div><h1>Case Report Dashboard</h1><p class="sub">Customer cases by month, channel, province and product</p></div>
+    </div>
+    <div class="sync">
+      <div class="syncbadge" title="Date and time the case data was last synced">
+        <span class="dot" id="syncDot"></span>
+        <div><b>Synced</b><span id="syncDate">&hellip;</span></div>
+      </div>
+      <div class="syncmeta" id="syncMeta"></div>
+      <div class="actions">
+        <button class="btn" id="btnExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>Export CSV</button>
+        <button class="btn blue" id="btnUpload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 0L8 7m4-4 4 4M4 21h16"/></svg>Upload Excel</button>
+        <button class="btn primary" id="btnAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Add case</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="stack" id="app"><div class="panel load">Loading cases&hellip;</div></main>
+  <footer class="foot" id="foot"></footer>
+</div>
+<div id="modalRoot"></div>
+<div id="toast" hidden></div>
+
+<script src="js/app.js" defer></script>
+<script type="module" src="js/firebase.js"></script>
+</body>
+</html>
